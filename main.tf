@@ -26,7 +26,7 @@ resource "kubernetes_manifest" "cluster" {
 
       service = {
 
-        type = "LoadBalancer"
+        type = var.service
 
         annotations = {
 
@@ -144,23 +144,23 @@ resource "kubernetes_manifest" "cluster" {
 
       }
 
-      resources = {
+      #   resources = {
 
-        requests = {
+      #     requests = {
 
-          cpu    = var.limit_cpu
-          memory = var.limit_memory
+      #       cpu    = var.limit_cpu
+      #       memory = var.limit_memory
 
-        }
+      #     }
 
-        limits = {
+      #     limits = {
 
-          cpu    = var.limit_cpu
-          memory = var.limit_memory
+      #       cpu    = var.limit_cpu
+      #       memory = var.limit_memory
 
-        }
+      #     }
 
-      }
+      #   }
 
       rabbitmq = {
 
@@ -176,23 +176,23 @@ EOF
 
       persistence = var.persistence
 
-      resources = {
+      #   resources = {
 
-        requests = {
+      #     requests = {
 
-          cpu    = var.request_cpu
-          memory = var.request_memory
+      #       cpu    = var.request_cpu
+      #       memory = var.request_memory
 
-        }
+      #     }
 
-        limits = {
+      #     limits = {
 
-          cpu    = var.limit_cpu
-          memory = var.limit_memory
+      #       cpu    = var.limit_cpu
+      #       memory = var.limit_memory
 
-        }
+      #     }
 
-      }
+      #   }
 
     }
 
